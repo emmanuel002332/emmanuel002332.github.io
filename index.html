@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nnamani Emmanuel - Portfolio</title>
   <style>
+    /* 🎨 Global Reset and Base Styles */
     * {
       box-sizing: border-box;
     }
@@ -16,41 +17,15 @@
       color: #333;
     }
 
-    header {
-      background-color: green;
-      color: white;
-      text-align: center;
-      padding: 30px 10px;
-    }
-
-    header img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 4px solid white;
-      object-fit: cover;
+    /* 🏷️ Typography and Headings */
+    h2 {
+      color: green;
+      border-bottom: 2px solid #25d366;
+      display: inline-block;
       margin-bottom: 10px;
     }
 
-    nav {
-      background: #333;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      padding: 10px 0;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 10px 15px;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      color: #25d366;
-    }
-
+    /* 🧱 Layout Containers */
     section {
       background: white;
       margin: 20px auto;
@@ -60,13 +35,41 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
-    h2 {
-      color: green;
-      border-bottom: 2px solid #25d366;
-      display: inline-block;
+    /* ⚙️ Header and Navigation */
+    header {
+      background-color: green;
+      color: white;
+      text-align: center;
+      padding: 30px 10px;
+    }
+
+    header img {
+      width: 150px; /* Unified image size for better consistency */
+      height: 150px;
+      border-radius: 50%; /* Make the profile image a circle */
+      object-fit: cover;
       margin-bottom: 10px;
     }
 
+    nav {
+      text-align: center;
+      padding: 10px 0;
+      background-color: #388e3c; /* Slightly darker green for nav */
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #25d366;
+    }
+
+    /* 👤 About Section */
     .about-content {
       display: flex;
       align-items: center;
@@ -81,6 +84,7 @@
       object-fit: cover;
     }
 
+    /* 💼 Projects Section */
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -98,6 +102,7 @@
       color: green;
     }
 
+    /* 📧 Contact Section */
     form {
       max-width: 400px;
       margin: 20px auto;
@@ -124,12 +129,14 @@
       border-radius: 5px;
       cursor: pointer;
       width: 100%;
+      transition: background 0.3s;
     }
 
     button:hover {
       background: #25d366;
     }
 
+    /* 📜 Footer */
     footer {
       background: #333;
       color: white;
@@ -138,7 +145,21 @@
       margin-top: 30px;
     }
 
-    /* ✅ Make it mobile-friendly */
+    /* 🚀 Scroll-Up Animation Styles (FIXED LOGIC) */
+    .fade-up {
+        /* Initial state: Invisible and slightly moved down */
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-up.active {
+        /* Final state: Fully visible and in original position */
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* 📱 Mobile Responsiveness */
     @media (max-width: 600px) {
       header img {
         width: 120px;
@@ -150,17 +171,27 @@
         text-align: center;
       }
 
+      .about-content img {
+        width: 150px;
+        height: 150px;
+      }
+
       nav a {
         margin: 8px;
+      }
+
+      /* Stack contact form elements on small screens if needed */
+      form {
+        padding: 15px;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="IMG_20251027_084733_597.jpg" alt="Nnamani Emmanuel" />
-    <h1>Nnamani Emmanuel</h1>
-    <p>Web Developer | Graphic Designer | Video Editor | App Developer</p>
+    <img src="Screenshot_20251118-003711.jpg" alt="Nnamani Emmanuel" />
+    <h1 class="fade-up">Nnamani Emmanuel</h1>
+    <p class="fade-up">web developer | Graphic Designer | Video Editor | App Developer</p>
   </header>
 
   <nav>
@@ -171,11 +202,11 @@
 
   <section id="about">
     <center>
-    <h2>About Me</h2>
+      <h2 class="fade-up">About Me</h2>
     </center>
     <div class="about-content">
-      <img src="IMG_20251027_084733_597.jpg" alt="Profile Picture" />
-      <p>
+      <img class="fade-up" src="Screenshot_20251118-003711.jpg" alt="Profile Picture" />
+      <p class="fade-up">
         Hello! I'm <b>Nnamani Emmanuel</b>, a passionate web developer, graphic designer, video editor, and app developer. 
         I love building clean, responsive, and user-friendly websites and apps that solve real problems.
       </p>
@@ -183,17 +214,17 @@
   </section>
 
   <section id="projects">
-    <h2>My Projects</h2>
+    <h2 class="fade-up">My Projects</h2>
     <div class="projects">
-      <div class="project">
+      <div class="project fade-up">
         <h3>Simple Portfolio Website</h3>
         <p>A clean personal website built with HTML and CSS to showcase my skills and contact info.</p>
       </div>
-      <div class="project">
+      <div class="project fade-up">
         <h3>School Result Portal</h3>
         <p>A result management system for schools to handle student scores easily.</p>
       </div>
-      <div class="project">
+      <div class="project fade-up">
         <h3>Business Landing Page</h3>
         <p>A professional landing page for small businesses with modern design and responsiveness.</p>
       </div>
@@ -201,10 +232,9 @@
   </section>
 
   <section id="contact">
-    <h2>Contact Me</h2>
-    <p style="text-align: center;">You can contact me by email or WhatsApp below 👇</p>
+    <h2 class="fade-up">Contact Me</h2>
+    <p class="fade-up" style="text-align: center;">You can contact me by email or WhatsApp below 👇</p>
 
-    <!-- ✅ Working Contact Form Without Formspree -->
     <form id="contactForm">
       <label>Your Name:</label>
       <input type="text" id="name" name="name" required />
@@ -217,39 +247,23 @@
 
       <button type="submit">Send Message</button>
     </form>
-
-    <script>
-      document.getElementById("contactForm").addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent page reload
-
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-        const message = document.getElementById("message").value;
-
-        // Send to your email
-        window.location.href = `mailto:nnamaniemmanuel002332@gmail.com?subject=Message from ${name}&body=Name: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
-
-        // Success message
-        alert("✅ Message window opened! Please send your message.");
-      });
-    </script>
-
-    <!-- ✅ WhatsApp Button -->
-    <div style="text-align: center; margin-top: 20px;">
+    
+    <div class="fade-up" style="text-align: center; margin-top: 20px;">
       <a
         href="https://wa.me/2349138019887"
         target="_blank"
-        style="background-color: #25d366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;"
+        style="background-color: #25d366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;"
       >
         💬 Chat on WhatsApp
       </a>
     </div>
   </section>
-  <section>
+  
+  <section class="fade-up" style="text-align: center;">
     <a
         href="aboutme.html"
         target="_blank"
-        style="background-color: #25d366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;"
+        style="background-color: #25d366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;"
       >
        About me
     </a>
@@ -258,5 +272,42 @@
   <footer>
     <p>&copy; 2025 Nnamani Emmanuel. All rights reserved.</p>
   </footer>
+  
+  <script>
+    // 📧 Contact Form Logic
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent page reload
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const message = document.getElementById("message").value;
+
+      // Construct the mailto link
+      window.location.href = `mailto:nnamaniemmanuel002332@gmail.com?subject=Message from ${name}&body=Name: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
+
+      // Success message (runs after the browser attempts to open the mail client)
+      alert("✅ Message window opened! Please send your message.");
+    });
+
+    // 🚀 Scroll-Up Animation Logic (FIXED)
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Add the final state class
+                entry.target.classList.add('active'); 
+                // Stop observing after it has animated
+                observer.unobserve(entry.target); 
+            }
+        });
+    }, {
+        // Triggers the animation when the element is 100px from the bottom of the viewport
+        rootMargin: '0px 0px -100px 0px' 
+    });
+    
+    // Select all elements with the 'fade-up' class and start observing them
+    document.querySelectorAll('.fade-up').forEach(item => {
+        observer.observe(item);
+    });
+  </script>
 </body>
 </html>
