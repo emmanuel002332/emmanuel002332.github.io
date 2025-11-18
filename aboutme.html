@@ -1,75 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"> <!-- Fixed missing quote -->
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nnamani Emmanuel - Portfolio</title>
+  <title>Nnamani Emmanuel - About Me</title>
   <style>
-    /* Header styling */
+    /* 🎨 Global Reset and Base Styles */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f2f2f2;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* ⚙️ Header Styling */
     header {
       background-color: green;
       color: white;
       text-align: center;
       padding: 30px 10px;
-      border-radius: 3px; /* Added missing semicolon */
     }
 
-    /* Section styling */
-    section {
-      margin-top: 30px;
-      background: rgb(230, 230, 230);
-      padding: 30px;
-      border-radius: 3px; /* Added missing semicolon */
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-    }
-
-    /* Headings */
-    h1 {
-      text-align: center;
+    header h1 {
       margin: 0;
     }
 
+    /* 🧱 Section Styling */
+    section {
+      background: white; /* Changed to white for better contrast */
+      margin: 20px auto; /* Centering the section */
+      padding: 30px;
+      border-radius: 10px; /* Consistent border-radius */
+      max-width: 900px; /* Max width for readability */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 🏷️ Headings */
     h2 {
       text-align: center;
       color: green;
-      text-decoration: underline; /* Better than using <u> tag */
+      border-bottom: 2px solid #25d366; /* Use border for emphasis */
+      display: inline-block;
+      padding-bottom: 5px;
+      margin-bottom: 20px;
     }
-  footer {
+    
+    .section-title-wrapper {
+        text-align: center;
+    }
+
+    /* 📜 Footer */
+    footer {
       background: #333;
       color: white;
       text-align: center;
       padding: 15px;
       margin-top: 30px;
     }
+
+    footer a {
+        color: #25d366;
+        text-decoration: none;
+        font-weight: bold;
+        margin-left: 10px;
+    }
+
+    /* 🚀 Scroll-Up Animation Styles */
+    .fade-up {
+        /* Initial state: Invisible and slightly moved down */
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-up.active {
+        /* Final state: Fully visible and in original position */
+        opacity: 1;
+        transform: translateY(0);
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>About Me</h1>
+    <h1 class="fade-up">About Me</h1>
   </header>
 
   <section>
-    <h2>Nnamani Emmanuel</h2>
-    <p>
-      I am <strong>Nnamani Emmanuel</strong>, an aspiring web developer and AI enthusiast with a strong passion for technology, coding, and digital innovation. I am currently developing my skills in front-end and back-end web development, focusing on HTML, CSS, JavaScript, and Python — with a particular interest in artificial intelligence and machine learning.
+    <div class="section-title-wrapper">
+        <h2 class="fade-up">Nnamani Emmanuel</h2>
+    </div>
+    
+    <p class="fade-up">
+      I am <strong>Nnamani Emmanuel</strong>, an aspiring web developer and AI enthusiast with a strong passion for technology, coding, and digital innovation. I am currently developing my skills in front-end and back-end web development, focusing on **HTML, CSS, JavaScript, and Python** — with a particular interest in artificial intelligence and machine learning.
     </p>
 
-    <p>
+    <p class="fade-up">
       I have successfully designed, developed, and published my portfolio website, which showcases my projects and continuous learning journey. I’m also expanding my expertise by creating additional websites that demonstrate creativity, problem-solving ability, and technical growth.
     </p>
 
-    <p>
-      My goal is to become a full-stack developer capable of building intelligent and interactive web applications powered by AI technologies. I am committed to continuous learning, staying updated with modern development tools, and applying my knowledge to real-world projects.
+    <p class="fade-up">
+      My goal is to become a full-stack developer capable of building intelligent and interactive web applications powered by AI technologies. I am committed to **continuous learning**, staying updated with modern development tools, and applying my knowledge to real-world projects.
     </p>
 
-    <p>
-      I approach every project with focus, consistency, and a desire for excellence. I believe in writing clean, efficient code and turning ideas into practical digital solutions that add value to people and businesses.
+    <p class="fade-up">
+      I approach every project with focus, consistency, and a desire for excellence. I believe in writing **clean, efficient code** and turning ideas into practical digital solutions that add value to people and businesses.
     </p>
   </section>
+  
   <footer>
-    <p>&copy; 2025 Nnamani Emmanuel. All rights reserved.</p>
-    <a href="index.html">Home</a>
+    <p>&copy; 2025 Nnamani Emmanuel. All rights reserved. <a href="index.html">Home</a></p>
   </footer>
+  
+  <script>
+    // 🚀 Scroll-Up Animation Logic
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Add the final state class
+                entry.target.classList.add('active'); 
+                // Stop observing after it has animated
+                observer.unobserve(entry.target); 
+            }
+        });
+    }, {
+        // Triggers the animation when the element is 100px from the bottom of the viewport
+        rootMargin: '0px 0px -100px 0px' 
+    });
+    
+    // Select all elements with the 'fade-up' class and start observing them
+    document.querySelectorAll('.fade-up').forEach(item => {
+        observer.observe(item);
+    });
+  </script>
 </body>
 </html>
